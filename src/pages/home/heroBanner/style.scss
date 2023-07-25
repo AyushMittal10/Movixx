@@ -1,0 +1,143 @@
+// ye mixins import krro
+@import "../../../mixins.scss";
+
+// ye css -- mobile ke liye hai
+.heroBanner {
+    width: 100%;
+    height: 450px;
+    background-color: var(--black);
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    // yha call kro
+    @include md {
+        // 768 px se niche jaate hi height km ho jaegi
+        // upar pe height is 700 and niche 450 (line 7)
+        height: 700px;
+    }
+
+    .backdrop-img {
+        width: 100%;
+        height: 100%;
+        // cz upar search bar aayega
+        position: absolute;
+
+        top: 0;
+        left: 0;
+        opacity: 0.5;
+        overflow: hidden;
+
+        .lazy-load-image-background {
+            width: 100%;
+            height: 100%;
+            img {
+                width: 100%;
+                height: 100%;
+                // image fit ho jaegi -- entire box meh
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+
+    .opacity-layer {
+        width: 100%;
+        height: 250px;
+        // apply gradient (transparent effect aaega)
+        background: linear-gradient(
+            180deg,
+            rgba(4,21,45,0) 0%,
+            #04152d 79.17%
+        );
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    // search part vli chize
+    .heroBannerContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        color: white;
+        text-align: center;
+
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+        
+        // title -- welcome vla part
+        // ye mobile ke liye hai
+        .title {
+            font-size: 50px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            
+            // ye desktop ke liye
+            @include md {
+                margin-bottom: 0;
+                font-size: 90px;
+            }
+        }
+
+        .subTitle {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 40px;
+            
+            @include md {
+                font-size: 24px;
+            }
+        }
+
+
+        .searchInput {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            
+            // calculated nikalna cz iski width se button ki width httani hai
+            input {
+                // button is 100 px
+                width: calc(100% - 100px);
+                height: 50px;
+                background-color: white;
+                outline: 0;
+                border: 0;
+                border-radius: 30px 0 0 30px;
+                padding: 0 15px;
+                font-size: 14px;
+                
+                // desktop ke liye
+                @include md {
+                    width: calc(100% - 150x);
+                    height: 60px;
+                    font-size: 20px;
+                    padding: 0 30px;
+                }
+            }
+
+            button {
+                width: 100px;
+                height: 50px;
+                // gradient is img islea bss background
+                background: var(--gradient);
+                color: white;
+                outline: 0;
+                border: 0;
+                border-radius: 0 30px 30px 0;
+                font-size: 16px;
+                cursor: pointer;
+
+                @include md {
+                    width: 150px;
+                    height: 60px;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}

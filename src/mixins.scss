@@ -1,0 +1,44 @@
+// media querry jisse desktop pe bhi chle yeh
+
+// 640 and upar jo hoga -- iss m vo css chlegi
+@mixin sm {
+    @media only screen and (min-width: 640px) {
+        @content;
+    }
+}
+
+// 768 and above
+@mixin md {
+    @media only screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+// 1024 and above
+@mixin lg {
+    @media only screen and (min-width: 1024px) {
+        @content;
+    }
+}
+
+// 1280 and above
+@mixin xl {
+    @media only screen and (min-width: 1280px) {
+        @content;
+    }
+}
+
+// 1536 and above
+@mixin xxl {
+    @media only screen and (min-width: 1536px) {
+        @content;
+    }
+}
+
+@mixin ellipsis($line: 2) {
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

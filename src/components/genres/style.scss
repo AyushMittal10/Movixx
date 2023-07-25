@@ -1,0 +1,17 @@
+.genres {
+    display: flex;
+    gap: 5px;
+
+    .genre {
+        background-color: var(--pink);
+        padding: 3px 5px;
+        font-size: 12px;
+        border-radius: 4px;
+        color: white;
+
+        // break na ho ek hi line meh rhe
+        white-space: nowrap;
+
+    }
+
+}
